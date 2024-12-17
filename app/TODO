@@ -1,0 +1,19 @@
+TODO
+    apiKey + passCode validation
+    v1/
+
+NÁPADY
+
+ZÁSADY
+    hlášky problému
+        errors
+            item: 0
+            code: 404
+            nessage: Not in UTF-8 format
+            field: currency
+            value: €
+    konzistence
+        endpointy v plurálu
+        paramName
+    query
+        example.com/api/v2/cities?fields=name,phone,mail

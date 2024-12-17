@@ -1,0 +1,22 @@
+services:
+	- App\Router\RouterFactory::createRouter
+	- App\Models\AnimalFactsModel
+	- App\Models\ChuckNorrisJokesModel
+	- App\Models\CitiesModel
+	- App\Models\ConvertModel
+	- App\Models\CountiesModel
+	- App\Models\CountriesModel
+	- App\Models\DailyQuotesModel
+	- App\Models\LoremModel
+	- App\Models\MathModel
+	- App\Models\RegionsModel
+	- App\Models\ValidationsModel
+	- App\Models\VowelsModel
+	# third party
+	- Solaris\MoonPhase
+	- Egulias\EmailValidator\EmailValidator
+	- Egulias\EmailValidator\Validation\RFCValidation
+	- Faker\Factory
+
+extensions:
+	dibi: Dibi\Bridges\Nette\DibiExtension22

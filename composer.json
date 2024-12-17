@@ -1,0 +1,74 @@
+{
+  "require": {
+    "ext-curl": "*",
+    "ext-simplexml": "*",
+    "dibi/dibi": "^4.2",
+    "doctrine/lexer": "*",
+    "dompdf/dompdf": "*",
+    "egulias/email-validator": "^3.1",
+    "fakerphp/faker": "*",
+    "guzzlehttp/guzzle": "^7.4",
+    "intervention/gif": "^0.5.0",
+    "intervention/image": "^2.7",
+    "intervention/mimesniffer": "^0.4.0",
+    "latte/latte": "^2.9",
+    "mpdf/mpdf": "^8.0",
+    "nette/application": "^3.1",
+    "nette/bootstrap": "^3.1",
+    "nette/caching": "^3.1",
+    "nette/di": "^3.0",
+    "nette/finder": "^2.5",
+    "nette/forms": "^3.1",
+    "nette/http": "^3.1",
+    "nette/mail": "^3.1",
+    "nette/robot-loader": "^3.3",
+    "nette/routing": "3.0.2",
+    "nette/security": "^3.1",
+    "nette/utils": "^3.2",
+    "phenx/php-svg-lib": "0.3.3",
+    "psr/log": "^1.1",
+    "sentry/sdk": "*",
+    "solaris/php-moon-phase": "2.*",
+    "symfony/process": "^5.4",
+    "tracy/tracy": "^2.8",
+    "psr/http-factory": "^1.0.2",
+    "webmozart/assert": "*"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest",
+    "phpunit/phpunit": "*",
+    "efabrica/rector-nette": "^0.14.0",
+    "slevomat/coding-standard": "~8.0",
+    "phpmd/phpmd": "^2.13"
+  },
+  "config": {
+    "platform-check": true,
+    "optimize-autoloader": true,
+    "sort-packages": true,
+    "platform": {
+      "php": "8.1"
+    },
+    "allow-plugins": {
+      "symfony/thanks": false,
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "php-http/discovery": true
+    }
+  },
+  "minimum-stability": "stable",
+  "scripts": {
+    "sniffer": "vendor/bin/phpcs --standard=codesniffer.xml --extensions=php --tab-width=4 -sp app bash class tests",
+    "sniffer-fix": "vendor/bin/phpcbf --standard=codesniffer.xml --extensions=php --tab-width=4 -sp app bash class tests",
+    "phpstan": "vendor/bin/phpstan analyse app bash class tests --memory-limit 1G -l  7",
+    "phpunit": "vendor/bin/phpunit tests",
+    "rector": "vendor/bin/rector init",
+    "rector-dry": "vendor/bin/rector process --dry-run",
+    "rector-run": "vendor/bin/rector process",
+    "serve": "php -S localhost:8020 -t public",
+    "mess": "phpmd ./app,./bash,./class html --suffixes php --exclude vendor --reportfile mess_report.html mess_detector_config.xml"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app"
+    }
+  }
+}
