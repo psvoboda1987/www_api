@@ -1,9 +1,0 @@
-parameters:
-
-
-dibi:
-	host: localhost
-	username: petr
-	password: pokora127
-	database: api
-	lazy: true

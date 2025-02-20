@@ -1,0 +1,12 @@
+* {
+    color: #fff;
+    text-decoration: none;
+}
+
+body {
+    font-family: Verdana, Geneva, sans-serif;
+    line-height: 2;
+    max-width: 600px;
+    margin: auto;
+    background-color: #555;
+}
