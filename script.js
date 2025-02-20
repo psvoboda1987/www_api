@@ -2,14 +2,27 @@ let controller = {
     animalFacts: async () => {
         let animal = getUrlParameter('animal')
         console.log(animal);
-        let data = await fetch('data/animal_facts.json')
+        let json = await fetch('data/animal_facts.json')
             .then(data => data.json())
-        console.log(data);
-
+        let items = json.data
+        if (animal) {
+            let filteredItems = items.filter(item => item.animal === animal)
+            let randomIndex = getRandomNumber(0, filteredItems.length);
+            return filteredItems[randomIndex];
+        }
+        let randomIndex = getRandomNumber(0, items.length);
+        return items[randomIndex];
     }
 }
 
-controller[getUrlParameter('m')]()
+function getRandomNumber(min = 0, max = 10) {
+    return (min + Math.floor(Math.random() * (max - min + 1)));
+}
+
+console.log(
+    await(controller[getUrlParameter('m')]())
+);
+
 
 function getUrlVariables() {
     let variables = {};
