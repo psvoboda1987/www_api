@@ -9,8 +9,7 @@ export default class Controller {
     async animalFacts() {
         const animal = this.getUrlParameter('animal')
         const items = await fetch('data/animal_facts.json')
-            .then(reply => reply.json())
-            .then(json => json.data);
+            .then(reply => reply.json());
         if (animal) {
             const filteredItems = items.filter(item => item.animal === animal);
             const randomIndex = this.getRandomNumber(0, filteredItems.length);
@@ -38,8 +37,7 @@ export default class Controller {
 
     async chuckNorrisJokes() {
         const items = await fetch('data/chuck_jokes.json')
-            .then(reply => reply.json())
-            .then(json => json.data);
+            .then(reply => reply.json());
         const randomIndex = this.getRandomNumber(0, items.length);
         return items[randomIndex];
     }
@@ -47,8 +45,7 @@ export default class Controller {
     async cities() {
         const zip = this.getUrlParameter('zip');
         const items = await fetch('data/post_codes.json')
-            .then(reply => reply.json())
-            .then(json => json.data);
+            .then(reply => reply.json());
         return items.filter(item => item.zip === zip);
     }
 
@@ -56,15 +53,13 @@ export default class Controller {
         const county = decodeURI(this.getUrlParameter('county'));
         const items = await fetch('data/post_codes.json')
             .then(reply => reply.json())
-            .then(json => json.data);
         return items.filter(item => item.county === county);
     }
 
     async countries() {
         const country = this.getUrlParameter('country');
         const items = await fetch('data/countries.json')
-            .then(reply => reply.json())
-            .then(json => json.data);
+            .then(reply => reply.json());
         let filteredItems = items.filter(item => item.country === country);
         return {
             country,
@@ -75,16 +70,14 @@ export default class Controller {
     async postalCodes() {
         const city = this.getUrlParameter('city');
         const items = await fetch('data/post_codes.json')
-            .then(reply => reply.json())
-            .then(json => json.data);
+            .then(reply => reply.json());
         return items.filter(item => item.city === city);
     }
 
     async regions() {
         const zip = this.getUrlParameter('zip');
         const items = await fetch('data/post_codes.json')
-            .then(reply => reply.json())
-            .then(json => json.data);
+            .then(reply => reply.json());
         let filteredItems = items.filter(item => item.zip === zip)
         return {
             zip,
@@ -339,7 +332,7 @@ export default class Controller {
 
     getUrlParameter(parameter) {
         if (window.location.href.indexOf(parameter) === 0) return '';
-        return this.getUrlVariables()[parameter];
+        return this.getUrlVariables()[parameter] || null;
     }
 
     convertJsonToXml() {

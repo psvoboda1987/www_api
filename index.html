@@ -8,7 +8,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <title>API</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        body {
+            font-family: Verdana, Geneva, sans-serif;
+            line-height: 2;
+            max-width: 600px;
+            margin: auto;
+            background-color: #555;
+        }
+    </style>
 </head>
 
 <body>
@@ -54,13 +67,15 @@
 
     let controller = new Controller();
     let method = controller.getUrlParameter('m');
-    console.log(method)
-    if (method === 'moonPhase') {
-        let moonPhase = new MoonPhase();
-        console.log(moonPhase.getPhaseName())
-        console.log(moonPhase.getPhaseNewMoon())
-    } else {
-        console.log(await (controller[method]()));
+    if (method !== null) {
+        console.log(method)
+        if (method === 'moonPhase') {
+            let moonPhase = new MoonPhase();
+            console.log(moonPhase.getPhaseName())
+            console.log(moonPhase.getPhaseNewMoon())
+        } else {
+            console.log(await (controller[method]()));
+        }
     }
 </script>
 </body>

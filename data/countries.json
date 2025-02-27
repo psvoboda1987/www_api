@@ -1,984 +1,786 @@
-{
-    "data": [
-        {
-            "id": "1",
-            "country": "afghanistan",
-            "capital": "kabul"
-        },
-        {
-            "id": "2",
-            "country": "albania",
-            "capital": "tirana"
-        },
-        {
-            "id": "3",
-            "country": "algeria",
-            "capital": "algiers"
-        },
-        {
-            "id": "4",
-            "country": "andorra",
-            "capital": "andorra la vella"
-        },
-        {
-            "id": "5",
-            "country": "angola",
-            "capital": "luanda"
-        },
-        {
-            "id": "6",
-            "country": "antigua and barbuda",
-            "capital": "saint john's"
-        },
-        {
-            "id": "7",
-            "country": "argentina",
-            "capital": "buenos aires"
-        },
-        {
-            "id": "8",
-            "country": "armenia",
-            "capital": "yerevan"
-        },
-        {
-            "id": "9",
-            "country": "australia",
-            "capital": "canberra"
-        },
-        {
-            "id": "10",
-            "country": "austria",
-            "capital": "vienna"
-        },
-        {
-            "id": "11",
-            "country": "azerbaijan",
-            "capital": "baku"
-        },
-        {
-            "id": "12",
-            "country": "the bahamas",
-            "capital": "nassau"
-        },
-        {
-            "id": "13",
-            "country": "bahrain",
-            "capital": "manama"
-        },
-        {
-            "id": "14",
-            "country": "bangladesh",
-            "capital": "dhaka"
-        },
-        {
-            "id": "15",
-            "country": "barbados",
-            "capital": "bridgetown"
-        },
-        {
-            "id": "16",
-            "country": "belarus",
-            "capital": "minsk"
-        },
-        {
-            "id": "17",
-            "country": "belgium",
-            "capital": "brussels"
-        },
-        {
-            "id": "18",
-            "country": "belize",
-            "capital": "belmopan"
-        },
-        {
-            "id": "19",
-            "country": "benin",
-            "capital": "porto-novo"
-        },
-        {
-            "id": "20",
-            "country": "bhutan",
-            "capital": "thimphu"
-        },
-        {
-            "id": "21",
-            "country": "bolivia",
-            "capital": "la paz (administrative); sucre (judicial)"
-        },
-        {
-            "id": "22",
-            "country": "bosnia and herzegovina",
-            "capital": "sarajevo"
-        },
-        {
-            "id": "23",
-            "country": "botswana",
-            "capital": "gaborone"
-        },
-        {
-            "id": "24",
-            "country": "brazil",
-            "capital": "brasilia"
-        },
-        {
-            "id": "25",
-            "country": "brunei",
-            "capital": "bandar seri begawan"
-        },
-        {
-            "id": "26",
-            "country": "bulgaria",
-            "capital": "sofia"
-        },
-        {
-            "id": "27",
-            "country": "burkina faso",
-            "capital": "ouagadougou"
-        },
-        {
-            "id": "28",
-            "country": "burundi",
-            "capital": "gitega (changed from bujumbura in december 2018)"
-        },
-        {
-            "id": "29",
-            "country": "cambodia",
-            "capital": "phnom penh"
-        },
-        {
-            "id": "30",
-            "country": "cameroon",
-            "capital": "yaounde"
-        },
-        {
-            "id": "31",
-            "country": "canada",
-            "capital": "ottawa"
-        },
-        {
-            "id": "32",
-            "country": "cape verde",
-            "capital": "praia"
-        },
-        {
-            "id": "33",
-            "country": "central african republic",
-            "capital": "bangui"
-        },
-        {
-            "id": "34",
-            "country": "chad",
-            "capital": "n'djamena"
-        },
-        {
-            "id": "35",
-            "country": "chile",
-            "capital": "santiago"
-        },
-        {
-            "id": "36",
-            "country": "china",
-            "capital": "beijing"
-        },
-        {
-            "id": "37",
-            "country": "colombia",
-            "capital": "bogota"
-        },
-        {
-            "id": "38",
-            "country": "comoros",
-            "capital": "moroni"
-        },
-        {
-            "id": "39",
-            "country": "congo, republic of the",
-            "capital": "brazzaville"
-        },
-        {
-            "id": "40",
-            "country": "congo, democratic republic of the",
-            "capital": "kinshasa"
-        },
-        {
-            "id": "41",
-            "country": "costa rica",
-            "capital": "san jose"
-        },
-        {
-            "id": "42",
-            "country": "cote d'ivoire",
-            "capital": "yamoussoukro (official); abidjan (de facto)"
-        },
-        {
-            "id": "43",
-            "country": "croatia",
-            "capital": "zagreb"
-        },
-        {
-            "id": "44",
-            "country": "cuba",
-            "capital": "havana"
-        },
-        {
-            "id": "45",
-            "country": "cyprus",
-            "capital": "nicosia"
-        },
-        {
-            "id": "46",
-            "country": "czech republic",
-            "capital": "prague"
-        },
-        {
-            "id": "47",
-            "country": "denmark",
-            "capital": "copenhagen"
-        },
-        {
-            "id": "48",
-            "country": "djibouti",
-            "capital": "djibouti"
-        },
-        {
-            "id": "49",
-            "country": "dominica",
-            "capital": "roseau"
-        },
-        {
-            "id": "50",
-            "country": "dominican republic",
-            "capital": "santo domingo"
-        },
-        {
-            "id": "51",
-            "country": "east timor (timor-leste)",
-            "capital": "dili"
-        },
-        {
-            "id": "52",
-            "country": "ecuador",
-            "capital": "quito"
-        },
-        {
-            "id": "53",
-            "country": "egypt",
-            "capital": "cairo"
-        },
-        {
-            "id": "54",
-            "country": "el salvador",
-            "capital": "san salvador"
-        },
-        {
-            "id": "55",
-            "country": "equatorial guinea",
-            "capital": "malabo"
-        },
-        {
-            "id": "56",
-            "country": "eritrea",
-            "capital": "asmara"
-        },
-        {
-            "id": "57",
-            "country": "estonia",
-            "capital": "tallinn"
-        },
-        {
-            "id": "58",
-            "country": "ethiopia",
-            "capital": "addis ababa"
-        },
-        {
-            "id": "59",
-            "country": "fiji",
-            "capital": "suva"
-        },
-        {
-            "id": "60",
-            "country": "finland",
-            "capital": "helsinki"
-        },
-        {
-            "id": "61",
-            "country": "france",
-            "capital": "paris"
-        },
-        {
-            "id": "62",
-            "country": "gabon",
-            "capital": "libreville"
-        },
-        {
-            "id": "63",
-            "country": "the gambia",
-            "capital": "banjul"
-        },
-        {
-            "id": "64",
-            "country": "georgia",
-            "capital": "tbilisi"
-        },
-        {
-            "id": "65",
-            "country": "germany",
-            "capital": "berlin"
-        },
-        {
-            "id": "66",
-            "country": "ghana",
-            "capital": "accra"
-        },
-        {
-            "id": "67",
-            "country": "greece",
-            "capital": "athens"
-        },
-        {
-            "id": "68",
-            "country": "grenada",
-            "capital": "saint george's"
-        },
-        {
-            "id": "69",
-            "country": "guatemala",
-            "capital": "guatemala city"
-        },
-        {
-            "id": "70",
-            "country": "guinea",
-            "capital": "conakry"
-        },
-        {
-            "id": "71",
-            "country": "guinea-bissau",
-            "capital": "bissau"
-        },
-        {
-            "id": "72",
-            "country": "guyana",
-            "capital": "georgetown"
-        },
-        {
-            "id": "73",
-            "country": "haiti",
-            "capital": "port-au-prince"
-        },
-        {
-            "id": "74",
-            "country": "honduras",
-            "capital": "tegucigalpa"
-        },
-        {
-            "id": "75",
-            "country": "hungary",
-            "capital": "budapest"
-        },
-        {
-            "id": "76",
-            "country": "iceland",
-            "capital": "reykjavik"
-        },
-        {
-            "id": "77",
-            "country": "india",
-            "capital": "new delhi"
-        },
-        {
-            "id": "78",
-            "country": "indonesia",
-            "capital": "jakarta"
-        },
-        {
-            "id": "79",
-            "country": "iran",
-            "capital": "tehran"
-        },
-        {
-            "id": "80",
-            "country": "iraq",
-            "capital": "baghdad"
-        },
-        {
-            "id": "81",
-            "country": "ireland",
-            "capital": "dublin"
-        },
-        {
-            "id": "82",
-            "country": "israel",
-            "capital": "jerusalem*"
-        },
-        {
-            "id": "83",
-            "country": "italy",
-            "capital": "rome"
-        },
-        {
-            "id": "84",
-            "country": "jamaica",
-            "capital": "kingston"
-        },
-        {
-            "id": "85",
-            "country": "japan",
-            "capital": "tokyo"
-        },
-        {
-            "id": "86",
-            "country": "jordan",
-            "capital": "amman"
-        },
-        {
-            "id": "87",
-            "country": "kazakhstan",
-            "capital": "astana"
-        },
-        {
-            "id": "88",
-            "country": "kenya",
-            "capital": "nairobi"
-        },
-        {
-            "id": "89",
-            "country": "kiribati",
-            "capital": "tarawa atoll"
-        },
-        {
-            "id": "90",
-            "country": "korea, north",
-            "capital": "pyongyang"
-        },
-        {
-            "id": "91",
-            "country": "korea, south",
-            "capital": "seoul"
-        },
-        {
-            "id": "92",
-            "country": "kosovo",
-            "capital": "pristina"
-        },
-        {
-            "id": "93",
-            "country": "kuwait",
-            "capital": "kuwait city"
-        },
-        {
-            "id": "94",
-            "country": "kyrgyzstan",
-            "capital": "bishkek"
-        },
-        {
-            "id": "95",
-            "country": "laos",
-            "capital": "vientiane"
-        },
-        {
-            "id": "96",
-            "country": "latvia",
-            "capital": "riga"
-        },
-        {
-            "id": "97",
-            "country": "lebanon",
-            "capital": "beirut"
-        },
-        {
-            "id": "98",
-            "country": "lesotho",
-            "capital": "maseru"
-        },
-        {
-            "id": "99",
-            "country": "liberia",
-            "capital": "monrovia"
-        },
-        {
-            "id": "100",
-            "country": "libya",
-            "capital": "tripoli"
-        },
-        {
-            "id": "101",
-            "country": "liechtenstein",
-            "capital": "vaduz"
-        },
-        {
-            "id": "102",
-            "country": "lithuania",
-            "capital": "vilnius"
-        },
-        {
-            "id": "103",
-            "country": "luxembourg",
-            "capital": "luxembourg"
-        },
-        {
-            "id": "104",
-            "country": "macedonia",
-            "capital": "skopje"
-        },
-        {
-            "id": "105",
-            "country": "madagascar",
-            "capital": "antananarivo"
-        },
-        {
-            "id": "106",
-            "country": "malawi",
-            "capital": "lilongwe"
-        },
-        {
-            "id": "107",
-            "country": "malaysia",
-            "capital": "kuala lumpur"
-        },
-        {
-            "id": "108",
-            "country": "maldives",
-            "capital": "male"
-        },
-        {
-            "id": "109",
-            "country": "mali",
-            "capital": "bamako"
-        },
-        {
-            "id": "110",
-            "country": "malta",
-            "capital": "valletta"
-        },
-        {
-            "id": "111",
-            "country": "marshall islands",
-            "capital": "majuro"
-        },
-        {
-            "id": "112",
-            "country": "mauritania",
-            "capital": "nouakchott"
-        },
-        {
-            "id": "113",
-            "country": "mauritius",
-            "capital": "port louis"
-        },
-        {
-            "id": "114",
-            "country": "mexico",
-            "capital": "mexico city"
-        },
-        {
-            "id": "115",
-            "country": "micronesia, federated states of",
-            "capital": "palikir"
-        },
-        {
-            "id": "116",
-            "country": "moldova",
-            "capital": "chisinau"
-        },
-        {
-            "id": "117",
-            "country": "monaco",
-            "capital": "monaco"
-        },
-        {
-            "id": "118",
-            "country": "mongolia",
-            "capital": "ulaanbaatar"
-        },
-        {
-            "id": "119",
-            "country": "montenegro",
-            "capital": "podgorica"
-        },
-        {
-            "id": "120",
-            "country": "morocco",
-            "capital": "rabat"
-        },
-        {
-            "id": "121",
-            "country": "mozambique",
-            "capital": "maputo"
-        },
-        {
-            "id": "122",
-            "country": "Myanmar (Burma)",
-            "capital": "Rangoon (Yangon); Naypyidaw or Nay Pyi Taw (administrative)"
-        },
-        {
-            "id": "123",
-            "country": "namibia",
-            "capital": "windhoek"
-        },
-        {
-            "id": "124",
-            "country": "nauru",
-            "capital": "no official `capital`; government offices in yaren district"
-        },
-        {
-            "id": "125",
-            "country": "nepal",
-            "capital": "kathmandu"
-        },
-        {
-            "id": "126",
-            "country": "netherlands",
-            "capital": "amsterdam; the hague (seat of government)"
-        },
-        {
-            "id": "127",
-            "country": "new zealand",
-            "capital": "wellington"
-        },
-        {
-            "id": "128",
-            "country": "nicaragua",
-            "capital": "managua"
-        },
-        {
-            "id": "129",
-            "country": "niger",
-            "capital": "niamey"
-        },
-        {
-            "id": "130",
-            "country": "nigeria",
-            "capital": "abuja"
-        },
-        {
-            "id": "131",
-            "country": "norway",
-            "capital": "oslo"
-        },
-        {
-            "id": "132",
-            "country": "oman",
-            "capital": "muscat"
-        },
-        {
-            "id": "133",
-            "country": "pakistan",
-            "capital": "islamabad"
-        },
-        {
-            "id": "134",
-            "country": "palau",
-            "capital": "melekeok"
-        },
-        {
-            "id": "135",
-            "country": "panama",
-            "capital": "panama city"
-        },
-        {
-            "id": "136",
-            "country": "papua new guinea",
-            "capital": "port moresby"
-        },
-        {
-            "id": "137",
-            "country": "paraguay",
-            "capital": "asuncion"
-        },
-        {
-            "id": "138",
-            "country": "peru",
-            "capital": "lima"
-        },
-        {
-            "id": "139",
-            "country": "philippines",
-            "capital": "manila"
-        },
-        {
-            "id": "140",
-            "country": "poland",
-            "capital": "warsaw"
-        },
-        {
-            "id": "141",
-            "country": "portugal",
-            "capital": "lisbon"
-        },
-        {
-            "id": "142",
-            "country": "qatar",
-            "capital": "doha"
-        },
-        {
-            "id": "143",
-            "country": "romania",
-            "capital": "bucharest"
-        },
-        {
-            "id": "144",
-            "country": "russia",
-            "capital": "moscow"
-        },
-        {
-            "id": "145",
-            "country": "rwanda",
-            "capital": "kigali"
-        },
-        {
-            "id": "146",
-            "country": "saint kitts and nevis",
-            "capital": "basseterre"
-        },
-        {
-            "id": "147",
-            "country": "saint lucia",
-            "capital": "castries"
-        },
-        {
-            "id": "148",
-            "country": "saint vincent and the grenadines",
-            "capital": "kingstown"
-        },
-        {
-            "id": "149",
-            "country": "samoa",
-            "capital": "apia"
-        },
-        {
-            "id": "150",
-            "country": "san marino",
-            "capital": "san marino"
-        },
-        {
-            "id": "151",
-            "country": "sao tome and principe",
-            "capital": "sao tome"
-        },
-        {
-            "id": "152",
-            "country": "saudi arabia",
-            "capital": "riyadh"
-        },
-        {
-            "id": "153",
-            "country": "senegal",
-            "capital": "dakar"
-        },
-        {
-            "id": "154",
-            "country": "serbia",
-            "capital": "belgrade"
-        },
-        {
-            "id": "155",
-            "country": "seychelles",
-            "capital": "victoria"
-        },
-        {
-            "id": "156",
-            "country": "sierra leone",
-            "capital": "freetown"
-        },
-        {
-            "id": "157",
-            "country": "singapore",
-            "capital": "singapore"
-        },
-        {
-            "id": "158",
-            "country": "slovakia",
-            "capital": "bratislava"
-        },
-        {
-            "id": "159",
-            "country": "slovenia",
-            "capital": "ljubljana"
-        },
-        {
-            "id": "160",
-            "country": "solomon islands",
-            "capital": "honiara"
-        },
-        {
-            "id": "161",
-            "country": "somalia",
-            "capital": "mogadishu"
-        },
-        {
-            "id": "162",
-            "country": "South Africa",
-            "capital": "Pretoria (administrative); Cape Town (legislative); Bloemfontein (judiciary)"
-        },
-        {
-            "id": "163",
-            "country": "south sudan",
-            "capital": "juba"
-        },
-        {
-            "id": "164",
-            "country": "spain",
-            "capital": "madrid"
-        },
-        {
-            "id": "165",
-            "country": "sri lanka",
-            "capital": "colombo; sri jayewardenepura kotte (legislative)"
-        },
-        {
-            "id": "166",
-            "country": "sudan",
-            "capital": "khartoum"
-        },
-        {
-            "id": "167",
-            "country": "suriname",
-            "capital": "paramaribo"
-        },
-        {
-            "id": "168",
-            "country": "swaziland",
-            "capital": "mbabane"
-        },
-        {
-            "id": "169",
-            "country": "sweden",
-            "capital": "stockholm"
-        },
-        {
-            "id": "170",
-            "country": "switzerland",
-            "capital": "bern"
-        },
-        {
-            "id": "171",
-            "country": "syria",
-            "capital": "damascus"
-        },
-        {
-            "id": "172",
-            "country": "taiwan",
-            "capital": "taipei"
-        },
-        {
-            "id": "173",
-            "country": "tajikistan",
-            "capital": "dushanbe"
-        },
-        {
-            "id": "174",
-            "country": "tanzania",
-            "capital": "dar es salaam; dodoma (legislative)"
-        },
-        {
-            "id": "175",
-            "country": "thailand",
-            "capital": "bangkok"
-        },
-        {
-            "id": "176",
-            "country": "togo",
-            "capital": "lome"
-        },
-        {
-            "id": "177",
-            "country": "tonga",
-            "capital": "nuku'alofa"
-        },
-        {
-            "id": "178",
-            "country": "trinidad and tobago",
-            "capital": "port-of-spain"
-        },
-        {
-            "id": "179",
-            "country": "tunisia",
-            "capital": "tunis"
-        },
-        {
-            "id": "180",
-            "country": "turkey",
-            "capital": "ankara"
-        },
-        {
-            "id": "181",
-            "country": "turkmenistan",
-            "capital": "ashgabat"
-        },
-        {
-            "id": "182",
-            "country": "tuvalu",
-            "capital": "vaiaku village, funafuti province"
-        },
-        {
-            "id": "183",
-            "country": "uganda",
-            "capital": "kampala"
-        },
-        {
-            "id": "184",
-            "country": "ukraine",
-            "capital": "kyiv"
-        },
-        {
-            "id": "185",
-            "country": "united arab emirates",
-            "capital": "abu dhabi"
-        },
-        {
-            "id": "186",
-            "country": "united kingdom",
-            "capital": "london"
-        },
-        {
-            "id": "187",
-            "country": "united states of america",
-            "capital": "washington, d.c."
-        },
-        {
-            "id": "188",
-            "country": "uruguay",
-            "capital": "montevideo"
-        },
-        {
-            "id": "189",
-            "country": "uzbekistan",
-            "capital": "tashkent"
-        },
-        {
-            "id": "190",
-            "country": "vanuatu",
-            "capital": "port-vila"
-        },
-        {
-            "id": "191",
-            "country": "vatican city (holy see)",
-            "capital": "vatican city"
-        },
-        {
-            "id": "192",
-            "country": "venezuela",
-            "capital": "caracas"
-        },
-        {
-            "id": "193",
-            "country": "vietnam",
-            "capital": "hanoi"
-        },
-        {
-            "id": "194",
-            "country": "yemen",
-            "capital": "sanaa"
-        },
-        {
-            "id": "195",
-            "country": "zambia",
-            "capital": "lusaka"
-        },
-        {
-            "id": "196",
-            "country": "zimbabwe",
-            "capital": "harare"
-        }
-    ]
-}
+[
+  {
+    "country": "afghanistan",
+    "capital": "kabul"
+  },
+  {
+    "country": "albania",
+    "capital": "tirana"
+  },
+  {
+    "country": "algeria",
+    "capital": "algiers"
+  },
+  {
+    "country": "andorra",
+    "capital": "andorra la vella"
+  },
+  {
+    "country": "angola",
+    "capital": "luanda"
+  },
+  {
+    "country": "antigua and barbuda",
+    "capital": "saint john's"
+  },
+  {
+    "country": "argentina",
+    "capital": "buenos aires"
+  },
+  {
+    "country": "armenia",
+    "capital": "yerevan"
+  },
+  {
+    "country": "australia",
+    "capital": "canberra"
+  },
+  {
+    "country": "austria",
+    "capital": "vienna"
+  },
+  {
+    "country": "azerbaijan",
+    "capital": "baku"
+  },
+  {
+    "country": "the bahamas",
+    "capital": "nassau"
+  },
+  {
+    "country": "bahrain",
+    "capital": "manama"
+  },
+  {
+    "country": "bangladesh",
+    "capital": "dhaka"
+  },
+  {
+    "country": "barbados",
+    "capital": "bridgetown"
+  },
+  {
+    "country": "belarus",
+    "capital": "minsk"
+  },
+  {
+    "country": "belgium",
+    "capital": "brussels"
+  },
+  {
+    "country": "belize",
+    "capital": "belmopan"
+  },
+  {
+    "country": "benin",
+    "capital": "porto-novo"
+  },
+  {
+    "country": "bhutan",
+    "capital": "thimphu"
+  },
+  {
+    "country": "bolivia",
+    "capital": "la paz (administrative); sucre (judicial)"
+  },
+  {
+    "country": "bosnia and herzegovina",
+    "capital": "sarajevo"
+  },
+  {
+    "country": "botswana",
+    "capital": "gaborone"
+  },
+  {
+    "country": "brazil",
+    "capital": "brasilia"
+  },
+  {
+    "country": "brunei",
+    "capital": "bandar seri begawan"
+  },
+  {
+    "country": "bulgaria",
+    "capital": "sofia"
+  },
+  {
+    "country": "burkina faso",
+    "capital": "ouagadougou"
+  },
+  {
+    "country": "burundi",
+    "capital": "gitega (changed from bujumbura in december 2018)"
+  },
+  {
+    "country": "cambodia",
+    "capital": "phnom penh"
+  },
+  {
+    "country": "cameroon",
+    "capital": "yaounde"
+  },
+  {
+    "country": "canada",
+    "capital": "ottawa"
+  },
+  {
+    "country": "cape verde",
+    "capital": "praia"
+  },
+  {
+    "country": "central african republic",
+    "capital": "bangui"
+  },
+  {
+    "country": "chad",
+    "capital": "n'djamena"
+  },
+  {
+    "country": "chile",
+    "capital": "santiago"
+  },
+  {
+    "country": "china",
+    "capital": "beijing"
+  },
+  {
+    "country": "colombia",
+    "capital": "bogota"
+  },
+  {
+    "country": "comoros",
+    "capital": "moroni"
+  },
+  {
+    "country": "congo, republic of the",
+    "capital": "brazzaville"
+  },
+  {
+    "country": "congo, democratic republic of the",
+    "capital": "kinshasa"
+  },
+  {
+    "country": "costa rica",
+    "capital": "san jose"
+  },
+  {
+    "country": "cote d'ivoire",
+    "capital": "yamoussoukro (official); abidjan (de facto)"
+  },
+  {
+    "country": "croatia",
+    "capital": "zagreb"
+  },
+  {
+    "country": "cuba",
+    "capital": "havana"
+  },
+  {
+    "country": "cyprus",
+    "capital": "nicosia"
+  },
+  {
+    "country": "czech republic",
+    "capital": "prague"
+  },
+  {
+    "country": "denmark",
+    "capital": "copenhagen"
+  },
+  {
+    "country": "djibouti",
+    "capital": "djibouti"
+  },
+  {
+    "country": "dominica",
+    "capital": "roseau"
+  },
+  {
+    "country": "dominican republic",
+    "capital": "santo domingo"
+  },
+  {
+    "country": "east timor (timor-leste)",
+    "capital": "dili"
+  },
+  {
+    "country": "ecuador",
+    "capital": "quito"
+  },
+  {
+    "country": "egypt",
+    "capital": "cairo"
+  },
+  {
+    "country": "el salvador",
+    "capital": "san salvador"
+  },
+  {
+    "country": "equatorial guinea",
+    "capital": "malabo"
+  },
+  {
+    "country": "eritrea",
+    "capital": "asmara"
+  },
+  {
+    "country": "estonia",
+    "capital": "tallinn"
+  },
+  {
+    "country": "ethiopia",
+    "capital": "addis ababa"
+  },
+  {
+    "country": "fiji",
+    "capital": "suva"
+  },
+  {
+    "country": "finland",
+    "capital": "helsinki"
+  },
+  {
+    "country": "france",
+    "capital": "paris"
+  },
+  {
+    "country": "gabon",
+    "capital": "libreville"
+  },
+  {
+    "country": "the gambia",
+    "capital": "banjul"
+  },
+  {
+    "country": "georgia",
+    "capital": "tbilisi"
+  },
+  {
+    "country": "germany",
+    "capital": "berlin"
+  },
+  {
+    "country": "ghana",
+    "capital": "accra"
+  },
+  {
+    "country": "greece",
+    "capital": "athens"
+  },
+  {
+    "country": "grenada",
+    "capital": "saint george's"
+  },
+  {
+    "country": "guatemala",
+    "capital": "guatemala city"
+  },
+  {
+    "country": "guinea",
+    "capital": "conakry"
+  },
+  {
+    "country": "guinea-bissau",
+    "capital": "bissau"
+  },
+  {
+    "country": "guyana",
+    "capital": "georgetown"
+  },
+  {
+    "country": "haiti",
+    "capital": "port-au-prince"
+  },
+  {
+    "country": "honduras",
+    "capital": "tegucigalpa"
+  },
+  {
+    "country": "hungary",
+    "capital": "budapest"
+  },
+  {
+    "country": "iceland",
+    "capital": "reykjavik"
+  },
+  {
+    "country": "india",
+    "capital": "new delhi"
+  },
+  {
+    "country": "indonesia",
+    "capital": "jakarta"
+  },
+  {
+    "country": "iran",
+    "capital": "tehran"
+  },
+  {
+    "country": "iraq",
+    "capital": "baghdad"
+  },
+  {
+    "country": "ireland",
+    "capital": "dublin"
+  },
+  {
+    "country": "israel",
+    "capital": "jerusalem*"
+  },
+  {
+    "country": "italy",
+    "capital": "rome"
+  },
+  {
+    "country": "jamaica",
+    "capital": "kingston"
+  },
+  {
+    "country": "japan",
+    "capital": "tokyo"
+  },
+  {
+    "country": "jordan",
+    "capital": "amman"
+  },
+  {
+    "country": "kazakhstan",
+    "capital": "astana"
+  },
+  {
+    "country": "kenya",
+    "capital": "nairobi"
+  },
+  {
+    "country": "kiribati",
+    "capital": "tarawa atoll"
+  },
+  {
+    "country": "korea, north",
+    "capital": "pyongyang"
+  },
+  {
+    "country": "korea, south",
+    "capital": "seoul"
+  },
+  {
+    "country": "kosovo",
+    "capital": "pristina"
+  },
+  {
+    "country": "kuwait",
+    "capital": "kuwait city"
+  },
+  {
+    "country": "kyrgyzstan",
+    "capital": "bishkek"
+  },
+  {
+    "country": "laos",
+    "capital": "vientiane"
+  },
+  {
+    "country": "latvia",
+    "capital": "riga"
+  },
+  {
+    "country": "lebanon",
+    "capital": "beirut"
+  },
+  {
+    "country": "lesotho",
+    "capital": "maseru"
+  },
+  {
+    "country": "liberia",
+    "capital": "monrovia"
+  },
+  {
+    "country": "libya",
+    "capital": "tripoli"
+  },
+  {
+    "country": "liechtenstein",
+    "capital": "vaduz"
+  },
+  {
+    "country": "lithuania",
+    "capital": "vilnius"
+  },
+  {
+    "country": "luxembourg",
+    "capital": "luxembourg"
+  },
+  {
+    "country": "macedonia",
+    "capital": "skopje"
+  },
+  {
+    "country": "madagascar",
+    "capital": "antananarivo"
+  },
+  {
+    "country": "malawi",
+    "capital": "lilongwe"
+  },
+  {
+    "country": "malaysia",
+    "capital": "kuala lumpur"
+  },
+  {
+    "country": "maldives",
+    "capital": "male"
+  },
+  {
+    "country": "mali",
+    "capital": "bamako"
+  },
+  {
+    "country": "malta",
+    "capital": "valletta"
+  },
+  {
+    "country": "marshall islands",
+    "capital": "majuro"
+  },
+  {
+    "country": "mauritania",
+    "capital": "nouakchott"
+  },
+  {
+    "country": "mauritius",
+    "capital": "port louis"
+  },
+  {
+    "country": "mexico",
+    "capital": "mexico city"
+  },
+  {
+    "country": "micronesia, federated states of",
+    "capital": "palikir"
+  },
+  {
+    "country": "moldova",
+    "capital": "chisinau"
+  },
+  {
+    "country": "monaco",
+    "capital": "monaco"
+  },
+  {
+    "country": "mongolia",
+    "capital": "ulaanbaatar"
+  },
+  {
+    "country": "montenegro",
+    "capital": "podgorica"
+  },
+  {
+    "country": "morocco",
+    "capital": "rabat"
+  },
+  {
+    "country": "mozambique",
+    "capital": "maputo"
+  },
+  {
+    "country": "Myanmar (Burma)",
+    "capital": "Rangoon (Yangon); Naypyidaw or Nay Pyi Taw (administrative)"
+  },
+  {
+    "country": "namibia",
+    "capital": "windhoek"
+  },
+  {
+    "country": "nauru",
+    "capital": "no official `capital`; government offices in yaren district"
+  },
+  {
+    "country": "nepal",
+    "capital": "kathmandu"
+  },
+  {
+    "country": "netherlands",
+    "capital": "amsterdam; the hague (seat of government)"
+  },
+  {
+    "country": "new zealand",
+    "capital": "wellington"
+  },
+  {
+    "country": "nicaragua",
+    "capital": "managua"
+  },
+  {
+    "country": "niger",
+    "capital": "niamey"
+  },
+  {
+    "country": "nigeria",
+    "capital": "abuja"
+  },
+  {
+    "country": "norway",
+    "capital": "oslo"
+  },
+  {
+    "country": "oman",
+    "capital": "muscat"
+  },
+  {
+    "country": "pakistan",
+    "capital": "islamabad"
+  },
+  {
+    "country": "palau",
+    "capital": "melekeok"
+  },
+  {
+    "country": "panama",
+    "capital": "panama city"
+  },
+  {
+    "country": "papua new guinea",
+    "capital": "port moresby"
+  },
+  {
+    "country": "paraguay",
+    "capital": "asuncion"
+  },
+  {
+    "country": "peru",
+    "capital": "lima"
+  },
+  {
+    "country": "philippines",
+    "capital": "manila"
+  },
+  {
+    "country": "poland",
+    "capital": "warsaw"
+  },
+  {
+    "country": "portugal",
+    "capital": "lisbon"
+  },
+  {
+    "country": "qatar",
+    "capital": "doha"
+  },
+  {
+    "country": "romania",
+    "capital": "bucharest"
+  },
+  {
+    "country": "russia",
+    "capital": "moscow"
+  },
+  {
+    "country": "rwanda",
+    "capital": "kigali"
+  },
+  {
+    "country": "saint kitts and nevis",
+    "capital": "basseterre"
+  },
+  {
+    "country": "saint lucia",
+    "capital": "castries"
+  },
+  {
+    "country": "saint vincent and the grenadines",
+    "capital": "kingstown"
+  },
+  {
+    "country": "samoa",
+    "capital": "apia"
+  },
+  {
+    "country": "san marino",
+    "capital": "san marino"
+  },
+  {
+    "country": "sao tome and principe",
+    "capital": "sao tome"
+  },
+  {
+    "country": "saudi arabia",
+    "capital": "riyadh"
+  },
+  {
+    "country": "senegal",
+    "capital": "dakar"
+  },
+  {
+    "country": "serbia",
+    "capital": "belgrade"
+  },
+  {
+    "country": "seychelles",
+    "capital": "victoria"
+  },
+  {
+    "country": "sierra leone",
+    "capital": "freetown"
+  },
+  {
+    "country": "singapore",
+    "capital": "singapore"
+  },
+  {
+    "country": "slovakia",
+    "capital": "bratislava"
+  },
+  {
+    "country": "slovenia",
+    "capital": "ljubljana"
+  },
+  {
+    "country": "solomon islands",
+    "capital": "honiara"
+  },
+  {
+    "country": "somalia",
+    "capital": "mogadishu"
+  },
+  {
+    "country": "South Africa",
+    "capital": "Pretoria (administrative); Cape Town (legislative); Bloemfontein (judiciary)"
+  },
+  {
+    "country": "south sudan",
+    "capital": "juba"
+  },
+  {
+    "country": "spain",
+    "capital": "madrid"
+  },
+  {
+    "country": "sri lanka",
+    "capital": "colombo; sri jayewardenepura kotte (legislative)"
+  },
+  {
+    "country": "sudan",
+    "capital": "khartoum"
+  },
+  {
+    "country": "suriname",
+    "capital": "paramaribo"
+  },
+  {
+    "country": "swaziland",
+    "capital": "mbabane"
+  },
+  {
+    "country": "sweden",
+    "capital": "stockholm"
+  },
+  {
+    "country": "switzerland",
+    "capital": "bern"
+  },
+  {
+    "country": "syria",
+    "capital": "damascus"
+  },
+  {
+    "country": "taiwan",
+    "capital": "taipei"
+  },
+  {
+    "country": "tajikistan",
+    "capital": "dushanbe"
+  },
+  {
+    "country": "tanzania",
+    "capital": "dar es salaam; dodoma (legislative)"
+  },
+  {
+    "country": "thailand",
+    "capital": "bangkok"
+  },
+  {
+    "country": "togo",
+    "capital": "lome"
+  },
+  {
+    "country": "tonga",
+    "capital": "nuku'alofa"
+  },
+  {
+    "country": "trinidad and tobago",
+    "capital": "port-of-spain"
+  },
+  {
+    "country": "tunisia",
+    "capital": "tunis"
+  },
+  {
+    "country": "turkey",
+    "capital": "ankara"
+  },
+  {
+    "country": "turkmenistan",
+    "capital": "ashgabat"
+  },
+  {
+    "country": "tuvalu",
+    "capital": "vaiaku village, funafuti province"
+  },
+  {
+    "country": "uganda",
+    "capital": "kampala"
+  },
+  {
+    "country": "ukraine",
+    "capital": "kyiv"
+  },
+  {
+    "country": "united arab emirates",
+    "capital": "abu dhabi"
+  },
+  {
+    "country": "united kingdom",
+    "capital": "london"
+  },
+  {
+    "country": "united states of america",
+    "capital": "washington, d.c."
+  },
+  {
+    "country": "uruguay",
+    "capital": "montevideo"
+  },
+  {
+    "country": "uzbekistan",
+    "capital": "tashkent"
+  },
+  {
+    "country": "vanuatu",
+    "capital": "port-vila"
+  },
+  {
+    "country": "vatican city (holy see)",
+    "capital": "vatican city"
+  },
+  {
+    "country": "venezuela",
+    "capital": "caracas"
+  },
+  {
+    "country": "vietnam",
+    "capital": "hanoi"
+  },
+  {
+    "country": "yemen",
+    "capital": "sanaa"
+  },
+  {
+    "country": "zambia",
+    "capital": "lusaka"
+  },
+  {
+    "country": "zimbabwe",
+    "capital": "harare"
+  }
+]
