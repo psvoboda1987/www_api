@@ -23,63 +23,18 @@
         }
     </style>
 </head>
-
+    <ul>
+        <li>
+            <a href="animal_facts.html">animal facts</a>
+        </li>
+        <li>
+            <a href="countries_cities.html">countries cities</a>
+        </li>
+        <li>
+            <a href="post_codes.html">post codes</a>
+        </li>
+    </ul>
 <body>
-    <section>
-        <div><a href="?m=animalFacts&animal=cat">animal-facts&animal=cat</a></div>
-        <div><a href="?m=animalFacts">animal-facts</a></div>
-        <div><a href="?m=chuckNorrisJokes">chuck-norris-jokes</a></div>
-        <div><a href="?m=cities&zip=25162">cities?zip=25162</a></div>
-        <div><a href="?m=counties&county=Jablonec%20nad%20Nisou">counties?county=Jablonec nad Nisou</a></div>
-        <div><a href="?m=moonPhase">moonPhase</a></div>
-        <div><a href="?m=countries&country=france">countries&country=France</a></div>
-        <div><a href="?m=postalCodes&city=Kladno">postal-codes&city=Kladno</a></div>
-        <!--    <div><a href="?m=postal-codes/validate/25162">postal-codes/validate/25162</a></div>-->
-        <div><a href="?m=regions&zip=25162">regions&zip=25162</a></div>
-        <div><a href="?m=vowelCount&string=testingonastring">vowel-count&string=testingonastring</a></div>
-        <!-- <div><a href="?m=validateEmail/petr.svoboda@seznam.cz">validations/email/petr.svoboda@seznam.cz</a>
-    </div> -->
-        <div><a href="?m=validateCompanyNumber&number=45677856">validateCompanyNumber&number=45677856</a></div>
-        <div><a href="?m=validateBirthNumber&number=8708050791">validations/birth-number/8708050791</a></div>
-        <div><a href="?m=uniqueLetters&string=trytofinduniqueletters">unique-letters</a></div>
-        <div><a
-                href="?m=averageWordLength&string=now%20try%20to%20find%20unique%20letters%20if%20you%20dare">average-word-length</a>
-        </div>
-        <div><a href="?m=getMultiples&number=4&count=5">get-multiples&number=4&count=5</a></div>
-        <div><a href="?m=isPrimeNumber&number=5">is-prime-number&number=5</a></div>
-        <div><a href="?m=primeNumbers&number=5&from=4">prime-numbers&number=5&from=4</a></div>
-        <div><a href="?m=romanNumberToInteger&roman=MCMLXXVIII">roman-number-to-integer&roman=MCMLXXVIII</a></div>
-        <div><a href="?m=fizzbuzz&number=20">fizzbuzz&number=20</a></div>
-        <div><a href="?m=fibonacciSequence&number=20">fibonacci-sequence&count=20</a></div>
-        <div><a href="?m=fibonacciValue&number=20">fibonacci-value&number=20</a></div>
-        <div><a href="?m=sum&numbers=1,5,7,11,8,52,3&settings=even">sum&numbers=1,5,7,11,8,52,3&settings=even</a></div>
-        <div><a href="?m=sum&numbers=1,5,7,11,8,52,3&settings=odd">sum&numbers=1,5,7,11,8,52,3&settings=odd</a></div>
-        <div><a href="?m=sum&numbers=1,5,7,11,8,52,3&settings=all">sum&numbers=1,5,7,11,8,52,3&settings=all</a></div>
-        <div><a href="?m=factors&number=12">factors&number=12</a></div>
-        <div><a href="?m=isPalindrome&word=lolipop">palindrome-check&word=lolipop</a></div>
-        <div>
-            <a
-                href='?m=convertJsonToXml&json={"main": {"status":1,"message":"ok","itemsFound":6,"itemsCount":1,"data":{"25162":"Žernovka"}}}'>convert/json-to-xml</a>
-        </div>
-    </section>
-
-<script type="module">
-        import Controller from './js/controller.js'
-        import MoonPhase from './js/moon_phase.js'
-
-        let controller = new Controller();
-        let method = controller.getUrlParameter('m');
-        if (method !== null) {
-            console.log(method)
-            if (method === 'moonPhase') {
-                let moonPhase = new MoonPhase();
-                console.log(moonPhase.getPhaseName())
-                console.log(moonPhase.getPhaseNewMoon())
-            } else {
-                console.log(await (controller[method]()));
-            }
-        }
-    </script>
 </body>
 
 </html>
