@@ -2,23 +2,6 @@ export default class Controller {
     constructor() {
     }
 
-    fallback() {
-        return {};
-    }
-
-    async animalFacts() {
-        const animal = this.getUrlParameter('animal')
-        const items = await fetch('data/animal_facts.json')
-            .then(reply => reply.json());
-        if (animal) {
-            const filteredItems = items.filter(item => item.animal === animal);
-            const randomIndex = this.getRandomNumber(0, filteredItems.length);
-            return filteredItems[randomIndex];
-        }
-        const randomIndex = this.getRandomNumber(0, items.length);
-        return items[randomIndex];
-    }
-
     getRandomNumber(min = 0, max = 10) {
         return (min + Math.floor(Math.random() * (max - min + 1)));
     }
@@ -33,56 +16,6 @@ export default class Controller {
             }
         }
         return foundVowels;
-    }
-
-    async chuckNorrisJokes() {
-        const items = await fetch('data/chuck_jokes.json')
-            .then(reply => reply.json());
-        const randomIndex = this.getRandomNumber(0, items.length);
-        return items[randomIndex];
-    }
-
-    async cities() {
-        const zip = this.getUrlParameter('zip');
-        const items = await fetch('data/post_codes.json')
-            .then(reply => reply.json());
-        return items.filter(item => item.zip === zip);
-    }
-
-    async counties() {
-        const county = decodeURI(this.getUrlParameter('county'));
-        const items = await fetch('data/post_codes.json')
-            .then(reply => reply.json())
-        return items.filter(item => item.county === county);
-    }
-
-    async countries() {
-        const country = this.getUrlParameter('country');
-        const items = await fetch('data/countries.json')
-            .then(reply => reply.json());
-        let filteredItems = items.filter(item => item.country === country);
-        return {
-            country,
-            capital: filteredItems[0].capital
-        };
-    }
-
-    async postalCodes() {
-        const city = this.getUrlParameter('city');
-        const items = await fetch('data/post_codes.json')
-            .then(reply => reply.json());
-        return items.filter(item => item.city === city);
-    }
-
-    async regions() {
-        const zip = this.getUrlParameter('zip');
-        const items = await fetch('data/post_codes.json')
-            .then(reply => reply.json());
-        let filteredItems = items.filter(item => item.zip === zip)
-        return {
-            zip,
-            region: filteredItems[0].region
-        };
     }
 
     uniqueLetters() {
@@ -333,33 +266,6 @@ export default class Controller {
     getUrlParameter(parameter) {
         if (window.location.href.indexOf(parameter) === 0) return '';
         return this.getUrlVariables()[parameter] || null;
-    }
-
-    convertJsonToXml() {
-        let json = this.getUrlParameter('json');
-        let object = JSON.parse(decodeURI(json));
-        return this.JSONtoXML(object);
-    }
-
-    JSONtoXML(obj) {
-        let xml = '';
-        for (let prop in obj) {
-            xml += obj[prop] instanceof Array ? '' : '<' + prop + '>';
-            if (obj[prop] instanceof Array) {
-                for (let array in obj[prop]) {
-                    xml += '\n<' + prop + '>\n';
-                    xml += this.JSONtoXML(new Object(obj[prop][array]));
-                    xml += '</' + prop + '>';
-                }
-            } else if (typeof obj[prop] == 'object') {
-                xml += this.JSONtoXML(new Object(obj[prop]));
-            } else {
-                xml += obj[prop];
-            }
-            xml += obj[prop] instanceof Array ? '' : '</' + prop + '>\n';
-        }
-        xml = xml.replace(/<\/?[0-9]+>/g, '');
-        return xml;
     }
 
     validateCompanyNumber() {

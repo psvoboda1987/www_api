@@ -196,8 +196,7 @@ export default class MoonPhase {
     }
 
     /**
-     * Given a K value used to determine the mean phase of the new moon and a
-     * phase selector (0.0, 0.25, 0.5, 0.75), obtain the true, corrected phase time.
+     * Given a K value used to determine the mean phase of the new moon and a phase selector (0.0, 0.25, 0.5, 0.75), obtain the true, corrected phase time.
      */
     truePhase(k, phase) {
         let apcor = false;
@@ -221,13 +220,13 @@ export default class MoonPhase {
             - 0.000000155 * t3
             + 0.00033 * Math.sin(this.degreesToRadians(166.56 + 132.87 * t - 0.009173 * t2));
 
-// Sun's mean anomaly
+        // Sun's mean anomaly
         const m = 359.2242 + 29.10535608 * k - 0.0000333 * t2 - 0.00000347 * t3;
 
-// Moon's mean anomaly
+        // Moon's mean anomaly
         const mprime = 306.0253 + 385.81691806 * k + 0.0107306 * t2 + 0.00001236 * t3;
 
-// Moon's argument of latitude
+        // Moon's argument of latitude
         const f = 21.2964 + 390.67050646 * k - 0.0016528 * t2 - 0.00000239 * t3;
 
         if (phase < 0.01 || Math.abs(phase - 0.5) < 0.01) {
@@ -278,8 +277,7 @@ export default class MoonPhase {
     }
 
     /**
-     * Find time of phases of the moon which surround the current date. Five phases are found, starting and
-     * ending with the new moons which bound the current lunation.
+     * Find time of phases of the moon which surround the current date. Five phases are found, starting and ending with the new moons which bound the current lunation.
      */
     phaseHunt() {
         const sdate = this.getJulianFromUTC(this.timestamp);
@@ -333,9 +331,7 @@ export default class MoonPhase {
         }
     }
 
-    /**
-     * UTC to Julian
-     */
+    // UTC to Julian
     getJulianFromUTC(timestamp) {
         return timestamp / 86400 + 2_440_587.5;
     }
@@ -368,9 +364,7 @@ export default class MoonPhase {
         return this.sunDiameter;
     }
 
-    /**
-     * Get moon phase data
-     */
+    // Get moon phase data
     getPhaseByName(name) {
         const phases = [
             'new_moon',

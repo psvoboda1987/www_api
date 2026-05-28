@@ -26,16 +26,6 @@
 
 <body>
     <section>
-        <div><a href="?m=animalFacts&animal=cat">animal-facts&animal=cat</a></div>
-        <div><a href="?m=animalFacts">animal-facts</a></div>
-        <div><a href="?m=chuckNorrisJokes">chuck-norris-jokes</a></div>
-        <div><a href="?m=cities&zip=25162">cities?zip=25162</a></div>
-        <div><a href="?m=counties&county=Jablonec%20nad%20Nisou">counties?county=Jablonec nad Nisou</a></div>
-        <div><a href="?m=moonPhase">moonPhase</a></div>
-        <div><a href="?m=countries&country=france">countries&country=France</a></div>
-        <div><a href="?m=postalCodes&city=Kladno">postal-codes&city=Kladno</a></div>
-        <!--    <div><a href="?m=postal-codes/validate/25162">postal-codes/validate/25162</a></div>-->
-        <div><a href="?m=regions&zip=25162">regions&zip=25162</a></div>
         <div><a href="?m=vowelCount&string=testingonastring">vowel-count&string=testingonastring</a></div>
         <!-- <div><a href="?m=validateEmail/petr.svoboda@seznam.cz">validations/email/petr.svoboda@seznam.cz</a>
     </div> -->
@@ -57,28 +47,18 @@
         <div><a href="?m=sum&numbers=1,5,7,11,8,52,3&settings=all">sum&numbers=1,5,7,11,8,52,3&settings=all</a></div>
         <div><a href="?m=factors&number=12">factors&number=12</a></div>
         <div><a href="?m=isPalindrome&word=lolipop">palindrome-check&word=lolipop</a></div>
-        <div>
-            <a
-                href='?m=convertJsonToXml&json={"main": {"status":1,"message":"ok","itemsFound":6,"itemsCount":1,"data":{"25162":"Žernovka"}}}'>convert/json-to-xml</a>
-        </div>
     </section>
 
-<script type="module">
+    <script type="module">
         import Controller from './js/controller.js'
-        import MoonPhase from './js/moon_phase.js'
 
         let controller = new Controller();
         let method = controller.getUrlParameter('m');
-        if (method !== null) {
-            console.log(method)
-            if (method === 'moonPhase') {
-                let moonPhase = new MoonPhase();
-                console.log(moonPhase.getPhaseName())
-                console.log(moonPhase.getPhaseNewMoon())
-            } else {
-                console.log(await (controller[method]()));
-            }
+        if (method === null) {
+            return
         }
+        console.log(method)
+        console.log(await (controller[method]()));
     </script>
 </body>
 

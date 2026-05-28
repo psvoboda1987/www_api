@@ -31,6 +31,7 @@ $('#factFilter').on('change', function () {
         .search(val ? '^' + val + '$' : '', true, false)
         .draw();
 });
+
 $('#regionFilter').on('change', function () {
     var val = $(this).val();
     table.column(3)
@@ -41,6 +42,7 @@ $('#regionFilter').on('change', function () {
 $('#factFilter').on('click', function (e) {
     e.stopPropagation();
 });
+
 $('#regionFilter').on('click', function (e) {
     e.stopPropagation();
 });

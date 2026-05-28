@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>moon phases</title>
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <style>
+        table td:first {
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid pt-3">
+        <table id="moonData" class="table table-bordered table-hover"></table>
+    </div>
+
+    <script type="module">
+        import MoonPhase from './assets/js/moon_phase.js'
+
+        // setInterval(() => renderMoonData(), 1500)
+        renderMoonData()
+
+        function renderMoonData() {
+            let moonPhase = new MoonPhase();
+            document.getElementById('moonData').innerHTML = `
+            <tr>
+                <td>Phase name</td>
+                <td>${moonPhase.getPhaseName()}</td>
+            </tr>
+            <tr>
+                <td>Illuminated fraction</td>
+                <td>${(moonPhase.getIllumination() * 100).toFixed(2)} %</td>
+            </tr>
+            <tr>
+                <td>Age of moon</td>
+                <td>${moonPhase.getAge().toFixed(2)} days</td>
+            </tr>
+            <tr>
+                <td>Distance</td>
+                <td>${moonPhase.getDistance().toFixed(0)} km</td>
+            </tr>
+            <tr>
+                <td>Angular diameter</td>
+                <td>${moonPhase.getDiameter().toFixed(2)} degrees</td>
+            </tr>
+            <tr>
+                <td>Distance to Sun</td>
+                <td>${moonPhase.getSunDistance().toFixed(0)} km</td>
+            </tr>
+            <tr>
+                <td>Sun's angular diameter</td>
+                <td>${moonPhase.getSunDiameter().toFixed(2)} degrees</td>
+            </tr>`
+
+            // console.log(moonPhase.getPhaseNewMoon())
+            // console.log(moonPhase.getPhaseFirstQuarter())
+            // console.log(moonPhase.getPhaseFullMoon())
+            // console.log(moonPhase.getPhaseLastQuarter())
+            // console.log(moonPhase.getPhaseNextNewMoon())
+            // console.log(moonPhase.getPhaseNextFirstQuarter())
+            // console.log(moonPhase.getPhaseNextFullMoon())
+            // console.log(moonPhase.getPhaseNextLastQuarter())
+        }
+    </script>
+</body>
+
+</html>
