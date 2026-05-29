@@ -16,55 +16,93 @@
 
 <body>
     <div class="container-fluid pt-3">
+        <h1>Moon phase</h1>
         <table id="moonData" class="table table-bordered table-hover"></table>
     </div>
 
     <script type="module">
         import MoonPhase from './assets/js/moon_phase.js'
 
-        // setInterval(() => renderMoonData(), 1500)
         renderMoonData()
+        setInterval(() => renderMoonData(), 1500)
 
         function renderMoonData() {
+            let dateSettings = {
+                dateStyle: 'medium',
+                timeStyle: 'short',
+                timeZone: 'UTC'
+            }
+            let distanceSettings = { minimumFractionDigits: 1, maximumFractionDigits: 1 }
             let moonPhase = new MoonPhase();
-            document.getElementById('moonData').innerHTML = `
-            <tr>
-                <td>Phase name</td>
-                <td>${moonPhase.getPhaseName()}</td>
-            </tr>
-            <tr>
-                <td>Illuminated fraction</td>
-                <td>${(moonPhase.getIllumination() * 100).toFixed(2)} %</td>
-            </tr>
-            <tr>
-                <td>Age of moon</td>
-                <td>${moonPhase.getAge().toFixed(2)} days</td>
-            </tr>
-            <tr>
-                <td>Distance</td>
-                <td>${moonPhase.getDistance().toFixed(0)} km</td>
-            </tr>
-            <tr>
-                <td>Angular diameter</td>
-                <td>${moonPhase.getDiameter().toFixed(2)} degrees</td>
-            </tr>
-            <tr>
-                <td>Distance to Sun</td>
-                <td>${moonPhase.getSunDistance().toFixed(0)} km</td>
-            </tr>
-            <tr>
-                <td>Sun's angular diameter</td>
-                <td>${moonPhase.getSunDiameter().toFixed(2)} degrees</td>
-            </tr>`
+            let moonData = {
+                phaseName: moonPhase.getPhaseName(),
+                illuminatedFraction: (moonPhase.getIllumination() * 100).toFixed(2),
+                moonAge: moonPhase.getAge().toFixed(2),
+                distance: moonPhase.getDistance().toLocaleString('cs-CZ', distanceSettings),
+                diameter: moonPhase.getDiameter().toFixed(2),
+                sunDistance: moonPhase.getSunDistance().toLocaleString('cs-CZ', distanceSettings),
+                sunDiameter: moonPhase.getSunDiameter().toFixed(2),
+                // Nov (nebo Novoluní) - Měsíc není vidět.
+                dateNewMoon: new Intl.DateTimeFormat('cs-CZ', dateSettings)
+                    .format(new Date(moonPhase.getPhaseNewMoon() * 1000)),
 
-            // console.log(moonPhase.getPhaseNewMoon())
-            // console.log(moonPhase.getPhaseFirstQuarter())
-            // console.log(moonPhase.getPhaseFullMoon())
-            // console.log(moonPhase.getPhaseLastQuarter())
-            // console.log(moonPhase.getPhaseNextNewMoon())
-            // console.log(moonPhase.getPhaseNextFirstQuarter())
-            // console.log(moonPhase.getPhaseNextFullMoon())
-            // console.log(moonPhase.getPhaseNextLastQuarter())
+                // První čtvrť - Měsíc je osvětlený přesně z poloviny.
+                dateFirstQuarter: new Intl.DateTimeFormat('cs-CZ', dateSettings)
+                    .format(new Date(moonPhase.getPhaseFirstQuarter() * 1000)),
+
+                dateFullMoon: new Intl.DateTimeFormat('cs-CZ', dateSettings)
+                    .format(new Date(moonPhase.getPhaseFullMoon() * 1000)),
+
+                // Poslední čtvrť
+                dateLastQuarter: new Intl.DateTimeFormat('cs-CZ', dateSettings)
+                    .format(new Date(moonPhase.getPhaseLastQuarter() * 1000)),
+            }
+
+            document.getElementById('moonData').innerHTML = `
+                <tr>
+                    <td>Phase name</td>
+                    <td>${moonData.phaseName}</td>
+                </tr>
+                <tr>
+                    <td>Illuminated fraction</td>
+                    <td>${moonData.illuminatedFraction} %</td>
+                </tr>
+                <tr>
+                    <td>Age of moon</td>
+                    <td>${moonData.moonAge} days</td>
+                </tr>
+                <tr>
+                    <td>Distance</td>
+                    <td>${moonData.distance} km</td>
+                </tr>
+                <tr>
+                    <td>Angular diameter</td>
+                    <td>${moonData.diameter} degrees</td>
+                </tr>
+                <tr>
+                    <td>Distance to Sun</td>
+                    <td>${moonData.sunDistance} km</td>
+                </tr>
+                <tr>
+                    <td>Sun's angular diameter</td>
+                    <td>${moonData.sunDiameter} degrees</td>
+                </tr>
+                <tr>
+                    <td>Příští Novoluní</td>
+                    <td>${moonData.dateNewMoon}</td>
+                </tr>
+                <tr>
+                    <td>Příští První čtvrť</td>
+                    <td>${moonData.dateFirstQuarter}</td>
+                </tr>
+                <tr>
+                    <td>Příští Úplněk</td>
+                    <td>${moonData.dateFullMoon}</td>
+                </tr>
+                <tr>
+                    <td>Příští Poslední čtvrť</td>
+                    <td>${moonData.dateLastQuarter}</td>
+                </tr>`
         }
     </script>
 </body>

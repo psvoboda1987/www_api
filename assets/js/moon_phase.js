@@ -43,8 +43,8 @@ export default class MoonPhase {
 
         this.synmonth = synmonth;
 
-        // date is coming in as a UNIX timstamp, so convert it to Julian
-        date = date / 86400 + 2_440_587.5;
+        // date is coming in as a UNIX timstamp in milliseconds, so convert it to Julian
+        date = date / 86_400_000 + 2_440_587.5;
 
         // Calculation of the Sun's position
 
@@ -170,7 +170,7 @@ export default class MoonPhase {
 
         while (true) {
             const delta = e - ecc * Math.sin(e) - m;
-            if (Math.abs(delta) > epsilon) {
+            if (Math.abs(delta) <= epsilon) {
                 return e;
             }
             e -= delta / (1 - ecc * Math.cos(e));
@@ -183,9 +183,9 @@ export default class MoonPhase {
      * K = (year - 1900) * 12.3685
      * where year is expressed as a year and fractional year.
      */
-    meanPhase(date, k) {
+    meanPhase(k) {
         // Time in Julian centuries from 1900 January 0.5
-        const jt = (date - 2_415_020.0) / 36525;
+        const jt = (2_415_020.0) / 36525;
         const t2 = jt * jt;
         const t3 = t2 * jt;
 
@@ -282,20 +282,20 @@ export default class MoonPhase {
     phaseHunt() {
         const sdate = this.getJulianFromUTC(this.timestamp);
         let adate = sdate - 45;
-        const ats = this.timestamp - 86400 * 45;
+        const ats = this.timestamp - (86_400_000 * 45);
         const date = new Date(ats);
         const yy = date.getFullYear();
         const mm = date.getMonth() + 1;
 
         let k1 = Math.floor((yy + ((mm - 1) * (1 / 12)) - 1900) * 12.3685);
-        let nt1 = this.meanPhase(() => adate, k1);
+        let nt1 = this.meanPhase(k1);
         adate = nt1;
         let k2;
         let x = 0
         while (x < 1000) {
             adate += this.synmonth;
             k2 = k1 + 1;
-            let nt2 = this.meanPhase(() => adate, k2);
+            let nt2 = this.meanPhase(k2);
 
             // If nt2 is close to sdate, then mean phase isn't good enough, we have to be more accurate
             if (Math.abs(nt2 - sdate) < 0.75) {
@@ -327,13 +327,13 @@ export default class MoonPhase {
 
         for (const jdate of dates) {
             // Convert to UNIX time
-            this.quarters.push((jdate - 2_440_587.5) * 86400);
+            this.quarters.push((jdate - 2_440_587.5) * 86_400);
         }
     }
 
     // UTC to Julian
     getJulianFromUTC(timestamp) {
-        return timestamp / 86400 + 2_440_587.5;
+        return timestamp / 86_400_000 + 2_440_587.5;
     }
 
     getPhase() {
