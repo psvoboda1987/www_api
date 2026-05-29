@@ -185,7 +185,7 @@ export default class MoonPhase {
      */
     meanPhase(k) {
         // Time in Julian centuries from 1900 January 0.5
-        const jt = (2_415_020.0) / 36525;
+        const jt = 2_415_020.0 / 36525;
         const t2 = jt * jt;
         const t3 = t2 * jt;
 
@@ -380,7 +380,11 @@ export default class MoonPhase {
         if (typeof this.quarters === 'undefined') {
             this.phaseHunt();
         }
-        return this.quarters[phases.reverse().indexOf(name)] ?? null;
+
+        // Bezpečné vyhledání indexu bez mutace pole pomocí .reverse()
+        const index = phases.indexOf(name);
+
+        return index !== -1 ? this.quarters[index] : null;
     }
 
     /**
@@ -397,10 +401,12 @@ export default class MoonPhase {
             'Waning Gibbous',
             'Third Quarter',
             'Waning Crescent',
-            'New Moon',
         ];
 
-        return names[Math.floor((this.phase + 0.0625) * 8)];
+        // % 8 prevents array overflow
+        const index = Math.floor((this.phase + 0.0625) * 8) % 8;
+
+        return names[index];
     }
 
     getPhaseNewMoon() {
