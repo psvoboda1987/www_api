@@ -36,6 +36,7 @@ function renderMoonData() {
 
     let moonData = {
         phaseName: moonPhase.getPhaseName(),
+        phaseImage: moonPhase.getPhaseName().toLowerCase().replace(' ', '_'),
         illuminatedFraction: (moonPhase.getIllumination() * 100).toFixed(2),
         moonAge: moonPhase.getAge().toFixed(2),
         distance: moonPhase.getDistance().toLocaleString('cs-CZ', distanceSettings),
@@ -62,6 +63,10 @@ function renderMoonData() {
         <tr>
             <td>Phase name</td>
             <td>${moonData.phaseName}</td>
+        </tr>
+        <tr>
+            <td>Phase Image</td>
+            <td><img id="moon-icon" src="assets/icons/${moonData.phaseImage + '.png'}"></td>
         </tr>
         <tr>
             <td>Illuminated fraction</td>
