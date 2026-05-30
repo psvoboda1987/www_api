@@ -1,4 +1,4 @@
-import MoonPhase from './moon_phase.js'
+import MoonPhase from './moonPhase.js'
 
 let animation = requestAnimationFrame(renderMoonData)
 
