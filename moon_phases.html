@@ -8,9 +8,15 @@
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <style>
-        table td:first {
+        td:nth-child(1) {
             text-transform: capitalize;
+            font-weight: 600;
         }
+
+        td {
+            padding: 8px 16px;
+        }
+
         #moon-icon {
             height: 50px;
         }
@@ -20,7 +26,7 @@
 <body>
     <div class="container pt-3">
         <h1>Moon phase</h1>
-        <table id="moonData" class="table table-bordered table-hover"></table>
+        <table id="moonData" class="table-bordered table-hover"></table>
     </div>
 
     <script type="module" src="assets/js/moon_phases.js"></script>

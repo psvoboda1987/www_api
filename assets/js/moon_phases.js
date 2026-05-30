@@ -1,7 +1,6 @@
 import MoonPhase from './moon_phase.js'
 
-renderMoonData()
-setInterval(() => renderMoonData(), 1500)
+let animation = requestAnimationFrame(renderMoonData)
 
 function renderMoonData() {
     let dateSettings = {
@@ -108,4 +107,6 @@ function renderMoonData() {
             <td>Next first quarter</td>
             <td>${moonData.dateFirstQuarter}</td>
         </tr>`
+
+    animation = requestAnimationFrame(renderMoonData)
 }
