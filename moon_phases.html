@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>moon phases</title>
+    <title>Moon phases</title>
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <style>
@@ -16,17 +16,64 @@
         td {
             padding: 8px 16px;
         }
-
-        #moon-icon {
-            height: 50px;
-        }
     </style>
 </head>
 
 <body>
     <div class="container pt-3">
         <h1>Moon phase</h1>
-        <table id="moonData" class="table-bordered table-hover"></table>
+        <table id="moonData" class="table-bordered table-hover">
+            <tbody>
+                <tr>
+                    <td>Phase name</td>
+                    <td id="md-phaseName"></td>
+                </tr>
+                <tr>
+                    <td>Phase Image</td>
+                    <td><img id="md-phaseImage" src="" alt="Moon phase" style="height: 50px;"></td>
+                </tr>
+                <tr>
+                    <td>Illuminated fraction</td>
+                    <td><span id="md-illuminated"></span> %</td>
+                </tr>
+                <tr>
+                    <td>Age of moon</td>
+                    <td><span id="md-moonAge"></span> days</td>
+                </tr>
+                <tr>
+                    <td>Distance</td>
+                    <td><span id="md-distance"></span> km</td>
+                </tr>
+                <tr>
+                    <td>Angular diameter</td>
+                    <td><span id="md-diameter"></span> degrees</td>
+                </tr>
+                <tr>
+                    <td>Distance to Sun</td>
+                    <td><span id="md-sunDistance"></span> km</td>
+                </tr>
+                <tr>
+                    <td>Sun's angular diameter</td>
+                    <td><span id="md-sunDiameter"></span> degrees</td>
+                </tr>
+                <tr>
+                    <td>Next full moon</td>
+                    <td id="md-dateFullMoon"></td>
+                </tr>
+                <tr>
+                    <td>Next last quarter</td>
+                    <td id="md-dateLastQuarter"></td>
+                </tr>
+                <tr>
+                    <td>Next new moon</td>
+                    <td id="md-dateNewMoon"></td>
+                </tr>
+                <tr>
+                    <td>Next first quarter</td>
+                    <td id="md-dateFirstQuarter"></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <script type="module" src="assets/js/moon_phases.js"></script>
