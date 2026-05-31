@@ -1,112 +1,116 @@
+// Astronomical constants. 1980 January 0.0
+const EPOCH_1980 = 2_444_238.5;
+
+// Constants defining the Sun's apparent orbit
+const SUN_ELLIPTIC_LONGITUDE_AT_1980 = 278.833540;
+const SUN_ELLIPTIC_LONGITUDE_AT_PERIGEE = 282.596403;
+const EARTH_ORBIT_ECCENTRICITY = 0.016718;
+const EARTH_ORBIT_SEMI_MAJOR_AXIS_KM = 1.495985e8;
+const SUN_ANGULAR_SEMI_MAJOR_AXIS_SIZE_DEG = 0.533128;
+
+const MOON_MEAN_LONGITUDE_AT_1980 = 64.975464;
+const MEAN_LONGITUDE_OF_PERIGEE_AT_EPOCH = 349.383063;
+const MOON_ORBIT_ECCENTRICITY = 0.054900;
+// Moon's angular size at distanceKm a from Earth
+const MOON_ANGULAR_SIZE_FROM_EARTH_KM = 0.5181;
+const MOON_ORBIT_SEMI_MAJOR_AXIS_KM = 384401;
+
+const SYNODIC_MONTH_DAYS = 29.53058868;
+const DAY_IN_SECONDS = 86_400;
+const JULIAN_DATE_UNIX_EPOCH = 2_440_587.5;
+
+const PHASES = [
+    'new_moon',
+    'first_quarter',
+    'full_moon',
+    'last_quarter',
+    'next_new_moon',
+    'next_first_quarter',
+    'next_full_moon',
+    'next_last_quarter',
+];
+const NAMES = [
+    'New Moon',
+    'Waxing Crescent',
+    'First Quarter',
+    'Waxing Gibbous',
+    'Full Moon',
+    'Waning Gibbous',
+    'Third Quarter',
+    'Waning Crescent',
+];
+
 export default class MoonPhase {
     constructor(date = new Date()) {
         this.utcTimestamp = date.getTime();
 
-        // Astronomical constants. 1980 January 0.0
-        const epoch1980 = 2_444_238.5;
-
-        // Constants defining the Sun's apparent orbit
-        const sunEllipticLongitudeAt1980 = 278.833540;
-        const sunEllipticLongitudeAtPerigee = 282.596403;
-        const earthOrbitEccentricity = 0.016718;
-        const earthOrbitSemiMajorAxisKm = 1.495985e8;
-        const sunAngularSemiMajorAxisSizeDeg = 0.533128;
-
-        const moonMeanLongitudeAt1980 = 64.975464;
-        const meanLongitudeOfPerigeeAtEpoch = 349.383063;
-        const moonOrbitEccentricity = 0.054900;
-        // Moon's angular size at distanceKm a from Earth
-        const moonAngularSizeFromEarthKm = 0.5181;
-        const moonOrbitSemiMajorAxisKm = 384401;
-        this.synodicMonthDays = 29.53058868;
         // date is coming in as a UNIX timestamp in milliseconds, so convert it to Julian
-        this.dayInSeconds = 86_400;
-        this.julianDateUnixEpoch = 2_440_587.5;
-        date = date / (this.dayInSeconds * 1000) + this.julianDateUnixEpoch;
+        let julianDate = this.utcTimestamp / (DAY_IN_SECONDS * 1000) + JULIAN_DATE_UNIX_EPOCH;
 
         // Calculation of the Sun's position
-        const dayInEpoch = date - epoch1980;
-        const sunsMeanAnomaly = this.fixAngle((360 / 365.2422) * dayInEpoch);
+        const dayInEpoch = julianDate - EPOCH_1980;
+        const sunsMeanAnomaly = MoonPhase.fixAngle((360 / 365.2422) * dayInEpoch);
 
         // Convert from perigee co-ordinates to epoch1980 1980.0
-        const sunMeanAnomaly = this.fixAngle(sunsMeanAnomaly + sunEllipticLongitudeAt1980 - sunEllipticLongitudeAtPerigee);
+        const sunMeanAnomaly = MoonPhase.fixAngle(sunsMeanAnomaly + SUN_ELLIPTIC_LONGITUDE_AT_1980 - SUN_ELLIPTIC_LONGITUDE_AT_PERIGEE);
 
         // Solve equation of Kepler
-        let ec = this.kepler(sunMeanAnomaly, earthOrbitEccentricity);
-        ec = Math.sqrt((1 + earthOrbitEccentricity) / (1 - earthOrbitEccentricity)) * Math.tan(ec / 2);
+        let ec = this.kepler(sunMeanAnomaly, EARTH_ORBIT_ECCENTRICITY);
+        ec = Math.sqrt((1 + EARTH_ORBIT_ECCENTRICITY) / (1 - EARTH_ORBIT_ECCENTRICITY)) * Math.tan(ec / 2);
 
         // True anomaly
-        ec = 2 * this.radiansToDegrees(Math.atan(ec));
+        ec = 2 * MoonPhase.radiansToDegrees(Math.atan(ec));
 
         // Sun's geocentric ecliptic longitude
-        const lambdaSun = this.fixAngle(ec + sunEllipticLongitudeAtPerigee);
-        const orbitalDistanceFactor = ((1 + earthOrbitEccentricity * Math.cos(this.degreesToRadians(ec))) / (1 - earthOrbitEccentricity * earthOrbitEccentricity));
-        const sunDistanceKm = earthOrbitSemiMajorAxisKm / orbitalDistanceFactor;
-        const sunAngularSizeDeg = orbitalDistanceFactor * sunAngularSemiMajorAxisSizeDeg;
+        const lambdaSun = MoonPhase.fixAngle(ec + SUN_ELLIPTIC_LONGITUDE_AT_PERIGEE);
+        const orbitalDistanceFactor = ((1 + EARTH_ORBIT_ECCENTRICITY * Math.cos(MoonPhase.degreesToRadians(ec))) / (1 - EARTH_ORBIT_ECCENTRICITY * EARTH_ORBIT_ECCENTRICITY));
+        const sunDistanceKm = EARTH_ORBIT_SEMI_MAJOR_AXIS_KM / orbitalDistanceFactor;
+        const sunAngularSizeDeg = orbitalDistanceFactor * SUN_ANGULAR_SEMI_MAJOR_AXIS_SIZE_DEG;
 
         // Calculation of the Moon's position
-        const moonMeanLongitude = this.fixAngle(13.1763966 * dayInEpoch + moonMeanLongitudeAt1980);
-        const moonMeanAnomaly = this.fixAngle(moonMeanLongitude - 0.1114041 * dayInEpoch - meanLongitudeOfPerigeeAtEpoch);
-        const evection = 1.2739 * Math.sin(this.degreesToRadians(2 * (moonMeanLongitude - lambdaSun) - moonMeanAnomaly));
-        const annualEquation = 0.1858 * Math.sin(this.degreesToRadians(sunMeanAnomaly));
+        const moonMeanLongitude = MoonPhase.fixAngle(13.1763966 * dayInEpoch + MOON_MEAN_LONGITUDE_AT_1980);
+        const moonMeanAnomaly = MoonPhase.fixAngle(moonMeanLongitude - 0.1114041 * dayInEpoch - MEAN_LONGITUDE_OF_PERIGEE_AT_EPOCH);
+        const evection = 1.2739 * Math.sin(MoonPhase.degreesToRadians(2 * (moonMeanLongitude - lambdaSun) - moonMeanAnomaly));
+        const annualEquation = 0.1858 * Math.sin(MoonPhase.degreesToRadians(sunMeanAnomaly));
 
-        const correctionA3 = 0.37 * Math.sin(this.degreesToRadians(sunMeanAnomaly));
+        const correctionA3 = 0.37 * Math.sin(MoonPhase.degreesToRadians(sunMeanAnomaly));
         const correctedAnomaly = moonMeanAnomaly + evection - annualEquation - correctionA3;
 
         // Correction for the equation of the center
-        const mEc = 6.2886 * Math.sin(this.degreesToRadians(correctedAnomaly));
+        const mEc = 6.2886 * Math.sin(MoonPhase.degreesToRadians(correctedAnomaly));
 
         // Another correction term
-        const a4 = 0.214 * Math.sin(this.degreesToRadians(2 * correctedAnomaly));
+        const a4 = 0.214 * Math.sin(MoonPhase.degreesToRadians(2 * correctedAnomaly));
         const correctedLongitude = moonMeanLongitude + evection + mEc - annualEquation + a4;
-        const variation = 0.6583 * Math.sin(this.degreesToRadians(2 * (correctedLongitude - lambdaSun)));
+        const variation = 0.6583 * Math.sin(MoonPhase.degreesToRadians(2 * (correctedLongitude - lambdaSun)));
         const trueLongitude = correctedLongitude + variation;
 
         // Calculation of the Moon's phase
         const moonAgeDeg = trueLongitude - lambdaSun;
-        const moonPhase = (1 - Math.cos(this.degreesToRadians(moonAgeDeg))) / 2;
-        const moonDistanceFromEarthCentre = (moonOrbitSemiMajorAxisKm * (1 - moonOrbitEccentricity * moonOrbitEccentricity)) / (1 + moonOrbitEccentricity * Math.cos(this.degreesToRadians(correctedAnomaly + mEc)));
-        const moonDFrac = moonDistanceFromEarthCentre / moonOrbitSemiMajorAxisKm;
-        const moonAngularDiameter = moonAngularSizeFromEarthKm / moonDFrac;
+        const moonDistanceFromEarthCentre = (MOON_ORBIT_SEMI_MAJOR_AXIS_KM * (1 - MOON_ORBIT_ECCENTRICITY * MOON_ORBIT_ECCENTRICITY)) / (1 + MOON_ORBIT_ECCENTRICITY * Math.cos(this.degreesToRadians(correctedAnomaly + mEc)));
+        const moonDFrac = moonDistanceFromEarthCentre / MOON_ORBIT_SEMI_MAJOR_AXIS_KM;
+        const moonAngularDiameter = MOON_ANGULAR_SIZE_FROM_EARTH_KM / moonDFrac;
 
-        this.phase0to1 = this.fixAngle(moonAgeDeg) / 360;
-        this.illuminatedFraction0to1 = moonPhase;
-        this.moonAgeDays = this.synodicMonthDays * this.phase0to1;
+        this.phase0to1 = MoonPhase.fixAngle(moonAgeDeg) / 360;
+        this.illuminatedFraction0to1 = (1 - Math.cos(MoonPhase.degreesToRadians(moonAgeDeg))) / 2;
+        this.moonAgeDays = SYNODIC_MONTH_DAYS * this.phase0to1;
         this.distanceKm = moonDistanceFromEarthCentre;
         this.angularDiameterDeg = moonAngularDiameter;
         this.sunDistanceKm = sunDistanceKm;
         this.sunAngularDiameterDeg = sunAngularSizeDeg;
-        this.phases = [
-            'new_moon',
-            'first_quarter',
-            'full_moon',
-            'last_quarter',
-            'next_new_moon',
-            'next_first_quarter',
-            'next_full_moon',
-            'next_last_quarter',
-        ];
-        this.names = [
-            'New Moon',
-            'Waxing Crescent',
-            'First Quarter',
-            'Waxing Gibbous',
-            'Full Moon',
-            'Waning Gibbous',
-            'Third Quarter',
-            'Waning Crescent',
-        ];
+        this.phases = PHASES;
+        this.names = NAMES;
     }
 
-    degreesToRadians(degrees) {
+    static degreesToRadians(degrees) {
         return degrees * (Math.PI / 180);
     }
 
-    radiansToDegrees(radians) {
+    static radiansToDegrees(radians) {
         return radians * (180 / Math.PI);
     }
 
-    fixAngle(angle) {
+    static fixAngle(angle) {
         return angle - 360 * Math.floor(angle / 360);
     }
 
@@ -132,14 +136,11 @@ export default class MoonPhase {
      */
     meanPhase(moonTime) {
         // Time in Julian centuries from 1900 January 0.5
-        const jt = 2_415_020.0 / 36525;
-        const timeSquared = jt * jt;
-        const timeCubed = timeSquared * jt;
-
-        return 2_415_020.75933 + this.synodicMonthDays * moonTime
-            + 0.0001178 * timeSquared
-            - 0.000000155 * timeCubed
-            + 0.00033 * Math.sin(this.degreesToRadians(166.56 + 132.87 * jt - 0.009173 * timeSquared));
+        const julianTime = 2_415_020.0 / 36525;
+        return 2_415_020.75933 + SYNODIC_MONTH_DAYS * moonTime
+            + 0.0001178 * julianTime**2
+            - 0.000000155 *  julianTime**3
+            + 0.00033 * Math.sin(this.degreesToRadians(166.56 + 132.87 * julianTime - 0.009173 * julianTime**2));
     }
 
     /**
@@ -172,7 +173,7 @@ export default class MoonPhase {
 
         // Initial base estimate of the Julian Date for the mean phase
         let calculatedJulianDate = 2_415_020.75933
-            + this.synodicMonthDays * kWithPhase
+            + SYNODIC_MONTH_DAYS * kWithPhase
             + 0.0001178 * timeSquared
             - 0.000000155 * timeCubed
             + 0.00033 * Math.sin(degToRad(166.56 + 132.87 * timeCenturies - 0.009173 * timeSquared));
@@ -228,7 +229,7 @@ export default class MoonPhase {
      */
     phaseHunt() {
         const targetJulianDate = this.getJulianFromUTC(this.utcTimestamp);
-        const searchTimestampMs = this.utcTimestamp - (this.dayInSeconds * 1000 * 45);
+        const searchTimestampMs = this.utcTimestamp - (DAY_IN_SECONDS * 1000 * 45);
         const date = new Date(searchTimestampMs);
         const year = date.getFullYear();
         const month = date.getMonth() + 1;
@@ -242,7 +243,7 @@ export default class MoonPhase {
         let safetyIteration = 0;
 
         while (safetyIteration < 1000) {
-            searchJulianDate += this.synodicMonthDays;
+            searchJulianDate += SYNODIC_MONTH_DAYS;
             nextLunationIndex = currentLunationIndex + 1;
             let nextPhaseJulian = this.meanPhase(nextLunationIndex);
 
@@ -275,12 +276,12 @@ export default class MoonPhase {
         this.quarters = [];
         for (const julianDate of datesJulian) {
             // Convert Julian Date to UNIX time seconds
-            this.quarters.push((julianDate - this.julianDateUnixEpoch) * this.dayInSeconds);
+            this.quarters.push((julianDate - JULIAN_DATE_UNIX_EPOCH) * DAY_IN_SECONDS);
         }
     }
 
     getJulianFromUTC(utcTimestamp) {
-        return utcTimestamp / (this.dayInSeconds * 1000) + this.julianDateUnixEpoch;
+        return utcTimestamp / (DAY_IN_SECONDS * 1000) + JULIAN_DATE_UNIX_EPOCH;
     }
 
     getPhase() {
