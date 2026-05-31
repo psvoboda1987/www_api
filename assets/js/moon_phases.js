@@ -35,10 +35,18 @@ function renderMoonData() {
     const timestamp = now.getTime();
     const moonPhase = new MoonPhase(now);
 
-    const nextNewMoon = getFuturePhaseTimestamp(timestamp, moonPhase.getPhaseNewMoon(), moonPhase.getPhaseNextNewMoon());
-    const nextFirstQuarter = getFuturePhaseTimestamp(timestamp, moonPhase.getPhaseFirstQuarter(), moonPhase.getPhaseNextFirstQuarter());
-    const nextFullMoon = getFuturePhaseTimestamp(timestamp, moonPhase.getPhaseFullMoon(), moonPhase.getPhaseNextFullMoon());
-    const nextLastQuarter = getFuturePhaseTimestamp(timestamp, moonPhase.getPhaseLastQuarter(), moonPhase.getPhaseNextLastQuarter());
+    const nextNewMoon = getFuturePhaseTimestamp(
+        timestamp, moonPhase.getPhaseNewMoon(), moonPhase.getPhaseNextNewMoon()
+    );
+    const nextFirstQuarter = getFuturePhaseTimestamp(
+        timestamp, moonPhase.getPhaseFirstQuarter(), moonPhase.getPhaseNextFirstQuarter()
+    );
+    const nextFullMoon = getFuturePhaseTimestamp(
+        timestamp, moonPhase.getPhaseFullMoon(), moonPhase.getPhaseNextFullMoon()
+    );
+    const nextLastQuarter = getFuturePhaseTimestamp(
+        timestamp, moonPhase.getPhaseLastQuarter(), moonPhase.getPhaseNextLastQuarter()
+    );
 
     const phaseNameStr = moonPhase.getPhaseName();
     const imageNameStr = phaseNameStr.toLowerCase().replace(' ', '_');
