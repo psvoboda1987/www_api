@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text helpers</title>
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/core.css">
+</head>
+<body>
+<div class="container">
+    <h2>Text helpers</h2>
+    <label for="input">Your input</label>
+    <textarea type="text" id="input"></textarea>
+    <label for="operation">operation</label>
+    <select name="operation" id="operation">
+        <option value="vowelCount">vowel count</option>
+        <option value="uniqueLetters">unique letters</option>
+        <option value="averageWordLength">average word length</option>
+    </select>
+    <div id="result"></div>
+</div>
+<script>
+    const input = document.getElementById('input');
+    const operation = document.getElementById('operation');
+    const result = document.getElementById('result');
+    window.addEventListener('keyup', () => {
+        handleProcess(input, operation, result)
+    });
+    window.addEventListener('change', () => {
+        handleProcess(input, operation, result)
+    });
+
+    function handleProcess(input, operation, result) {
+        if (input.value === '') {
+            return
+        }
+        switch (operation.value) {
+            case 'averageWordLength':
+                result.innerText = averageWordLength(input.value.trim());
+                break;
+            case 'uniqueLetters':
+                const returnedLetters = uniqueLetters(input.value.trim());
+                // console.log(returnedLetters);
+                result.innerText = `length: ${returnedLetters.size}, letters: ${[...returnedLetters].join(',')}`;
+                break;
+            case 'vowelCount':
+                result.innerText = vowelCount(input.value.trim());
+                break;
+        }
+    }
+
+    function vowelCount(string) {
+        const matches = string.match(/[aeiouyáéěíóúůý]/gi);
+        return matches ? matches.length : 0;
+    }
+
+    function uniqueLetters(string) {
+        const letters = string.toLowerCase().replace(/[^a-zžščřžýáíéóúůě]/g, '');
+        return new Set(letters);
+    }
+
+    function averageWordLength(string) {
+        const words = string.trim().split(/\s+/).filter(word => word.length > 0);
+        if (words.length === 0) return 0;
+        const totalLength = words.reduce((sum, word) => sum + word.length, 0);
+        return (totalLength / words.length).toFixed(2);
+    }
+</script>
+</body>
+</html>

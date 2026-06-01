@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numbers helpers</title>
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/core.css">
+</head>
+<body>
+<div class="container">
+    <h2>Number helpers</h2>
+    <label for="input">Your input</label>
+    <textarea type="text" id="input"></textarea>
+    <label for="operation">operation</label>
+    <select name="operation" id="operation">
+        <option value="getFizzBuzzSequence">fizz buzz</option>
+        <option value="getFibonacci">fibonacci sequence</option>
+        <option value="isPrimeNumber">is prime number?</option>
+        <option value="getDividers">dividers</option>
+        <option value="primeNumbers">(5:13) get 5 prime numbers starting from 13</option>
+
+    </select>
+    <div id="result"></div>
+</div>
+<script>
+    const input = document.getElementById('input');
+    const operation = document.getElementById('operation');
+    const result = document.getElementById('result');
+    window.addEventListener('keyup', () => {
+        handleProcess(input, operation, result)
+    });
+    window.addEventListener('change', () => {
+        handleProcess(input, operation, result)
+    });
+
+    function handleProcess(input, operation, result) {
+        if (input.value === '') {
+            return
+        }
+        switch (operation.value) {
+            case 'getFizzBuzzSequence':
+                result.innerText = getFizzBuzzSequence(parseInt(input.value));
+                break;
+            case 'getFibonacci':
+                result.innerText = `sequence: ${getFibonacciSequence(input.value).join(',')}, sum: ${getFibonacciValue(parseInt(input.value))}`;
+                break;
+            case 'isPrimeNumber':
+                result.innerText = isPrimeNumber(parseInt(input.value));
+                break;
+            case 'getDividers':
+                result.innerText = getDividers(parseInt(input.value)).join(', ');
+                break;
+            case 'primeNumbers':
+                const parameters = input.value.split(':');
+                result.innerText = primeNumbers(parseInt(parameters[0]), parseInt(parameters[1]));
+                break;
+        }
+    }
+
+    function getFizzBuzzSequence(number) {
+        let result = [];
+        for (let i = 1; i <= number; i++) {
+            result.push(this.getFizzbuzzFromNumber(i));
+        }
+        return result;
+    }
+
+    function getFizzbuzzFromNumber(number) {
+        if (number === 0) {
+            return 0;
+        }
+        if (number % 15 === 0) {
+            return 'fizzbuzz';
+        }
+        if (number % 3 === 0) {
+            return 'fizz';
+        }
+        if (number % 5 === 0) {
+            return 'buzz';
+        }
+        return number;
+    }
+
+    function getFibonacciSequence(number) {
+        let sequence = [];
+        for (let i = 1; i <= number; i++) {
+            sequence.push(this.getFibonacciValue(i));
+        }
+        return sequence;
+    }
+
+    function getFibonacciValue(number) {
+        return this.getFibonacci(number);
+    }
+
+    function getFibonacci(number) {
+        if (number <= 0) {
+            return null;
+        }
+        if (number === 1) {
+            return 0;
+        }
+        if (number === 2 || number === 3) {
+            return 1;
+        }
+        let fibValues = [0, 1, 1];
+        for (let i = 3; i < number; i++) {
+            fibValues[i] = fibValues[i - 2] + fibValues[i - 1];
+        }
+
+        return fibValues[number - 1];
+    }
+
+    function isPrimeNumber(number) {
+        return this.getDividers(number).length <= 2;
+    }
+
+    function getDividers(number) {
+        let dividers = [];
+        let divider = number;
+        while (divider > 0) {
+            if (number % divider === 0) {
+                dividers.push(divider);
+            }
+            divider--;
+        }
+        return dividers;
+    }
+
+    function primeNumbers(count, from) {
+        let i = from - 1;
+        let primes = [];
+        while (primes.length !== count) {
+            if (this.isPrimeNumber(i)) {
+                primes.push(i);
+            }
+            i++;
+        }
+        return primes;
+    }
+
+    function sum(numbersInput, settings) {
+        let numbers = numbersInput.split(',')
+            .map(item => parseInt(item));
+        let resultNumbers = [];
+        if (settings === null || settings === 'all') {
+            resultNumbers = this.getEvenAndOdd(numbers);
+        }
+        if (settings === 'even') {
+            resultNumbers = this.getItemsEven(numbers);
+        }
+        if (settings === 'odd') {
+            resultNumbers = this.getItemsOdd(numbers);
+        }
+        return {
+            numbers: resultNumbers,
+            sum: resultNumbers.reduce((total, num) => total + num)
+        };
+    }
+
+    function getEvenAndOdd(numbersParam) {
+        return numbersParam.filter(item => item % 1 === 0);
+    }
+
+    function getItemsEven(numbersParam) {
+        return numbersParam.filter(item => item % 2 === 0);
+    }
+
+    function getItemsOdd(numbersParam) {
+        return numbersParam.filter(item => item % 2 !== 0);
+    }
+</script>
+</body>
+</html>

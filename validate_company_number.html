@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Company Id Number Validator</title>
+    <link rel="stylesheet" href="assets/css/core.css">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+</head>
+<body>
+<div class="container">
+    <h2>Company id number validator</h2>
+    <label for="cin">Company id number</label>
+    <input type="text" name="cin" id="cin">
+    <div id="result"></div>
+</div>
+<script>
+    const result = document.getElementById('result');
+    const cin = document.getElementById('cin');
+    handleValidator(cin.value, result);
+    window.addEventListener('keyup', e => {
+        handleValidator(cin.value, result);
+    })
+
+    // 26168685 seznam.cz
+    function handleValidator(cin) {
+        if (cin === '') {
+            result.textContent = '';
+            return;
+        }
+        if (validateCompanyNumber(String(cin)) === true) {
+            result.textContent = 'valid';
+            result.style.color = 'green';
+            return;
+        }
+        result.textContent = 'not valid';
+        result.style.color = 'red';
+    }
+
+    function validateCompanyNumber(cin) {
+        if (cin.match(/\d{8}/) === null) {
+            return false;
+        }
+        let check = 0;
+        for (let i = 0; i < 7; i++) {
+            check += parseInt(cin[i]) * (8 - i);
+        }
+        check %= 11;
+        if (check === 0) {
+            return parseInt(cin[7]) === 1;
+        }
+        if (check === 1) {
+            return parseInt(cin[7]) === 0;
+        }
+        return parseInt(cin[7]) === 11 - check;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Roman Number Translator</title>
+    <link rel="stylesheet" href="assets/css/core.css">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+</head>
+<body>
+<div class="container">
+    <h2>Roman Number Translator</h2>
+    <label for="romanNumber">Roman Number</label>
+    <input type="text" name="romanNumber" id="romanNumber">
+    <div id="result"></div>
+</div>
+<script>
+    const result = document.getElementById('result');
+    const romanNumber = document.getElementById('romanNumber');
+    handleTranslator(romanNumber.value, result);
+    window.addEventListener('keyup', e => {
+        handleTranslator(romanNumber.value, result);
+    })
+
+    function handleTranslator(romanNumber, result) {
+        if (romanNumber === '') {
+            result.innerText = '';
+        } else {
+            result.innerText = translateRomanNumberToInteger(romanNumber);
+        }
+    }
+
+    function translateRomanNumberToInteger(romanNumber) {
+        const romanNumberMapping = {
+            'I': 1,
+            'V': 5,
+            'X': 10,
+            'L': 50,
+            'C': 100,
+            'D': 500,
+            'M': 1000,
+        };
+        const romanNumberSubtractMapping = {
+            // -1
+            'IV': 4,
+            'IX': 9,
+            'IL': 49,
+            'IC': 99,
+            'ID': 499,
+            'IM': 999,
+            // -5
+            'VL': 45,
+            'VC': 95,
+            'VD': 495,
+            'VM': 995,
+            // -10
+            'XL': 40,
+            'XC': 90,
+            'XD': 490,
+            'XM': 990,
+            // -50
+            'LD': 450,
+            'LM': 950,
+            // -100
+            'CD': 400,
+            'CM': 900,
+        };
+
+        let strlen = romanNumber.length;
+        let int = 0;
+        for (let i = 0; i < strlen; i++) {
+            let index = i;
+            let letter = romanNumber[index].toUpperCase();
+            let nextLetter = (romanNumber[++index] ?? '').toUpperCase();
+            let subtractIndex = (letter + nextLetter);
+            let subtractMappingElement = romanNumberSubtractMapping[subtractIndex];
+            let mappingElement = romanNumberMapping[letter];
+            if (subtractMappingElement !== undefined) {
+                int += subtractMappingElement;
+                i++;
+            } else if (mappingElement !== undefined) {
+                int += mappingElement;
+            }
+        }
+        return int;
+    }
+</script>
+</body>
+</html>
